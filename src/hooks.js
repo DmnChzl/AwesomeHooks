@@ -43,3 +43,40 @@ export function useArray() {
 
   return [values, setValues, addValue, delValue];
 }
+
+/**
+ * Hook: useMatrix
+ *
+ * @param {number} breakpoint BreakPoint
+ */
+export function useMatrix(breakpoint) {
+  const [values, setValues] = useState([]);
+
+  const getValues = (filter = '') => {
+    filter = filter.toLowerCase();
+
+    const filteredValues = values.filter(val => {
+      const lowerVal = val.toLowerCase();
+
+      return lowerVal.includes(filter);
+    });
+
+    let outerVal = [];
+
+    // Rows
+    for (let i = 0; i < filteredValues.length; i += breakpoint) {
+      let innerVal = [];
+
+      // Cols
+      for (let j = i; j < i + breakpoint; j++) {
+        innerVal = [...innerVal, filteredValues[j]];
+      }
+
+      outerVal = [...outerVal, innerVal];
+    }
+
+    return outerVal;
+  };
+
+  return [getValues, setValues];
+}

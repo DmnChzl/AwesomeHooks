@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { number, string } from 'prop-types';
 import { render, fireEvent } from '@testing-library/react';
-import { useCounter, useInput, useArray } from '../hooks';
+import { useCounter, useInput, useArray, useMatrix } from '../hooks';
 
 describe('useCounter', () => {
   const Counter = ({ defaultValue }) => {
@@ -166,5 +166,51 @@ describe('useArray', () => {
     await fireEvent.click(delButton);
 
     expect(queryByText('Two')).not.toBeInTheDocument();
+  });
+});
+
+describe('useMatrix', () => {
+  const Matrix = ({ filter }) => {
+    const [getValues, setValues] = useMatrix(2);
+
+    useEffect(() => {
+      setValues(['Lorem', 'Ipsum', 'Dolor', 'Sit', 'Amet']);
+    }, [setValues]);
+
+    return (
+      <ul>
+        {getValues(filter).map((values, i) => (
+          <ul key={i}>
+            {values.map((value, j) => (
+              <li key={j}>{value}</li>
+            ))}
+          </ul>
+        ))}
+      </ul>
+    );
+  };
+
+  Matrix.defaultProps = {
+    filter: ''
+  };
+
+  Matrix.propTypes = {
+    filter: string
+  };
+
+  it('Renders', () => {
+    const { container } = render(<Matrix />);
+
+    expect(container).toBeDefined();
+  });
+
+  it('Matrix Values', () => {
+    const { queryByText } = render(<Matrix filter="OR" />);
+
+    expect(queryByText('Lorem')).toBeInTheDocument();
+    expect(queryByText('Ipsum')).not.toBeInTheDocument();
+    expect(queryByText('Dolor')).toBeInTheDocument();
+    expect(queryByText('Sit')).not.toBeInTheDocument();
+    expect(queryByText('Amet')).not.toBeInTheDocument();
   });
 });

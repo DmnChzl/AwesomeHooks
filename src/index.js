@@ -1,6 +1,8 @@
-import { useCounter, useInput } from './hooks';
+import { useCounter, useInput, useArray, useMatrix } from './hooks';
 
 export default {
   useCounter,
-  useInput
+  useInput,
+  useArray,
+  useMatrix
 };
