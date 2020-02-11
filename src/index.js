@@ -4,4 +4,10 @@ import useField from './useField';
 import useInput from './useInput';
 import useMatrix from './useMatrix';
 
-export { useArray, useCounter, useField, useInput, useMatrix };
+export default {
+  useArray,
+  useCounter,
+  useField,
+  useInput,
+  useMatrix
+};
