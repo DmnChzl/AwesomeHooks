@@ -5,7 +5,11 @@ import { name as libraryName } from './package.json';
 export const output = {
   file: './dist/bundle.js',
   format: 'cjs',
-  name: libraryName
+  name: libraryName,
+  globals: {
+    react: 'React',
+    'react-dom': 'ReactDOM'
+  }
 };
 
 export const plugins = [
