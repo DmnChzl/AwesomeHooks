@@ -4,7 +4,7 @@
 
 ## Explanation
 
-_Lorem Ipsum Dolor Sit Amet..._
+_Work In Progress..._
 
 ## License
 
