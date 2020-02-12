@@ -6,6 +6,7 @@ module.exports = {
   parser: 'babel-eslint',
   env: {
     node: true,
+    browser: true,
     jest: true
   },
   plugins: ['react', 'react-hooks', 'prettier'],

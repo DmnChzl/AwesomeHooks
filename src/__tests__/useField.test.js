@@ -5,13 +5,13 @@ import useField from '../useField';
 
 describe('useField', () => {
   const Field = ({ defaultValue, children }) => {
-    const [{ val, err }, setVal, setErr, reset] = useField(defaultValue);
+    const { value, error, setValue, setError, reset } = useField(defaultValue);
 
     return children({
-      value: val,
-      error: err,
-      setValue: setVal,
-      setError: setErr,
+      value,
+      error,
+      setValue,
+      setError,
       reset
     });
   };
@@ -27,12 +27,12 @@ describe('useField', () => {
 
   it('Renders Default', () => {
     const DefaultField = () => {
-      const [{ val, err }] = useField();
+      const { value, error } = useField();
 
       return (
         <div>
-          <span title="Value">{val}</span>
-          <p title="Error">{err}</p>
+          <span title="Value">{value}</span>
+          <p title="Error">{error}</p>
         </div>
       );
     };

@@ -1,10 +1,36 @@
+[![npm](https://img.shields.io/npm/v/@mrdoomy/awesome-hooks.svg)](https://github.com/mrdoomy/@mrdoomy/awesomehooks) [![build](https://travis-ci.org/MrDoomy/AwesomeHooks.svg)](https://travis-ci.org/MrDoomy/AwesomeHooks.svg) [![minified size](https://img.shields.io/bundlephobia/min/@mrdoomy/awesome-hooks.svg)](https://www.npmjs.com/package/@mrdoomy/awesome-hooks) [![codecov](https://img.shields.io/codecov/c/github/MrDoomy/AwesomeHooks.svg)](https://codecov.io/gh/MrDoomy/AwesomeHooks) [![beerware](https://img.shields.io/badge/license-beerware-orange.svg)](https://wikipedia.org/wiki/beerware)
+
 # Awesome Hooks
 
-> 0.0.1
-
-## Explanation
-
 _Work In Progress..._
+
+### Miscellaneous
+
+If you want more,
+
+You can clone the project:
+
+```
+git clone https://github.com/mrdoomy/awesomehooks.git
+```
+
+Install dependencies:
+
+```
+npm install
+```
+
+Run all unit tests:
+
+```
+npm run test
+```
+
+And finally compile the project:
+
+```
+npm run build
+```
 
 ## License
 

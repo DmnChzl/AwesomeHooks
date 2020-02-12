@@ -38,15 +38,16 @@ export default function useField(initialState = '') {
     }
   };
 
-  const [value, dispatch] = useReducer(reducer, {
+  const [{ val, err }, dispatch] = useReducer(reducer, {
     val: initialState,
     err: ''
   });
 
-  return [
-    value,
-    val => dispatch({ type: SET_VAL, payload: val }),
-    err => dispatch({ type: SET_ERR, payload: err }),
-    () => dispatch({ type: RESET })
-  ];
+  return {
+    value: val,
+    error: err,
+    setValue: val => dispatch({ type: SET_VAL, payload: val }),
+    setError: err => dispatch({ type: SET_ERR, payload: err }),
+    reset: () => dispatch({ type: RESET })
+  };
 }

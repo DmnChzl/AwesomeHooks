@@ -1,5 +1,6 @@
 import useArray from './useArray';
 import useCounter from './useCounter';
+import useDocumentTitle from './useCounter';
 import useField from './useField';
 import useInput from './useInput';
 import useMatrix from './useMatrix';
@@ -7,6 +8,7 @@ import useMatrix from './useMatrix';
 export default {
   useArray,
   useCounter,
+  useDocumentTitle,
   useField,
   useInput,
   useMatrix
