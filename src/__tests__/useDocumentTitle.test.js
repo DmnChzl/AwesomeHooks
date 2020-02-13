@@ -9,7 +9,7 @@ describe('useDocumentTitle', () => {
     return <span>Hello World</span>;
   };
 
-  it('Renders', async () => {
+  it('Renders Default', async () => {
     const DefaultTitle = () => {
       useDocumentTitle();
 
