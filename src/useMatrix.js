@@ -17,34 +17,17 @@ export default function useMatrix(breakpoint = 1) {
 
   /**
    * Get Values
-   *
-   * @param {String} filter Filter
-   * @param {String} key Key
    */
-  const getValues = (filter = '', key = '') => {
-    filter = filter.toLowerCase();
-
-    const filteredValues = values.filter(val => {
-      let lowerVal;
-
-      if (key) {
-        lowerVal = val[key].toLowerCase();
-      } else {
-        lowerVal = val.toLowerCase();
-      }
-
-      return lowerVal.includes(filter);
-    });
-
+  const getValues = () => {
     let outerVal = [];
 
     // Rows
-    for (let i = 0; i < filteredValues.length; i += breakpoint) {
+    for (let i = 0; i < values.length; i += breakpoint) {
       let innerVal = [];
 
       // Cols
       for (let j = i; j < i + breakpoint; j++) {
-        innerVal = [...innerVal, filteredValues[j]];
+        innerVal = [...innerVal, values[j]];
       }
 
       outerVal = [...outerVal, innerVal];
@@ -53,5 +36,5 @@ export default function useMatrix(breakpoint = 1) {
     return outerVal;
   };
 
-  return [getValues, setValues];
+  return [getValues(), setValues];
 }
