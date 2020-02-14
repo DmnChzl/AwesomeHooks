@@ -12,20 +12,20 @@ Below, the list of all available hooks:
 
 **useCounter**
 
-> Use it to create a simple counter
+> _Use it to create a ~~simple~~ counter_
 
 ```js
 import React from 'react';
 import { useCounter } from '@mrdoomy/awesome-hooks';
 
 export default function Counter(props) {
-  const [value, addOne, delOne, reset] = useCounter(0);
+  const [value, add, del, reset] = useCounter(0);
 
   return (
     <div>
       {value}
-      <button onClick={addOne}>+1</button>
-      <button onClick={delOne}>-1</button>
+      <button onClick={() => add(2)}>+2</button>
+      <button onClick={() => del(2)}>-2</button>
       <button onClick={reset}>0</button>
     </div>
   );
@@ -34,7 +34,7 @@ export default function Counter(props) {
 
 **useDocumentTitle**
 
-> Use it to change the site title
+> _Use it to change the site title_
 
 ```js
 import React from 'react';
@@ -49,7 +49,7 @@ export default function HelloWorld(props) {
 
 **useMeta**
 
-> Use it to add / change a metadata
+> _Use it to add / change a metadata_
 
 ```js
 import React from 'react';
@@ -63,9 +63,42 @@ export default function LoremIpsum(props) {
 }
 ```
 
+**useObject**
+
+> _Use it to handle an object_
+
+```js
+import React, { useEffect } from 'react';
+import { useObject } from '@mrdoomy/awesome-hooks';
+
+export default function App(props) {
+  const [person, setPerson] = useObject({
+    firstName: 'Morty',
+    lastName: 'Smith'
+  });
+
+  useEffect(() => {
+    setPerson({
+      firstName: 'Rick',
+      lastName: 'Sanchez'
+    });
+  }, [setPerson]);
+
+  return (
+    <ul>
+      {Object.entries(person).map(([key, value], idx) => {
+        <li key={idx}>
+          {key}: {value}
+        </li>
+      })}
+    </ul>
+  );
+}
+```
+
 **useInput**
 
-> Use it to handle the behaviour of an input
+> _Use it to handle the behaviour of an input_
 
 ```js
 import React from 'react';
@@ -80,7 +113,7 @@ export default function Input(props) {
 
 **useField**
 
-> Use it to associate a value with a potential error (example with a form field)
+> _Use it to associate a value with a potential error (example with a form field)_
 
 ```js
 import React from 'react';
@@ -112,7 +145,7 @@ export default function Form(props) {
 
 **useArray**
 
-> Use it to handle an array
+> _Use it to handle an array_
 
 ```js
 import React, { useEffect } from 'react';
@@ -150,7 +183,7 @@ export default function List(props) {
 
 **useMatrix**
 
-> Use it to transform an array into a matrix (useful to comply with bootstrap standards)
+> _Use it to transform an array into a matrix (useful to comply with bootstrap standards)_
 
 ```js
 import React, { useEffect } from 'react';

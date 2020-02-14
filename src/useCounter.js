@@ -10,8 +10,8 @@ export default function useCounter(initialState = 0) {
 
   return [
     value,
-    () => setValue(value + 1),
-    () => setValue(value - 1),
+    (unit = 1) => setValue(value + unit),
+    (unit = 1) => setValue(value - unit),
     () => setValue(0)
   ];
 }
