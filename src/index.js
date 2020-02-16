@@ -5,7 +5,7 @@ import useField from './useField';
 import useInput from './useInput';
 import useMatrix from './useMatrix';
 import useMeta from './useMeta';
-import useObject from './useMeta';
+import useObject from './useObject';
 
 export default {
   useArray,
