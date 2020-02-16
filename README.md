@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/@mrdoomy/awesome-hooks.svg)](https://github.com/mrdoomy/mrdoomy/awesomehooks) [![build](https://travis-ci.org/MrDoomy/AwesomeHooks.svg)](https://travis-ci.org/MrDoomy/AwesomeHooks.svg) [![minified size](https://img.shields.io/bundlephobia/min/@mrdoomy/awesome-hooks.svg)](https://www.npmjs.com/package/@mrdoomy/awesome-hooks) [![codecov](https://img.shields.io/codecov/c/github/MrDoomy/AwesomeHooks.svg)](https://codecov.io/gh/MrDoomy/AwesomeHooks) [![beerware](https://img.shields.io/badge/license-beerware-orange.svg)](https://wikipedia.org/wiki/beerware)
+[![npm](https://img.shields.io/npm/v/@mrdoomy/awesome-hooks.svg)](https://github.com/mrdoomy/awesomehooks) [![build](https://travis-ci.org/MrDoomy/AwesomeHooks.svg)](https://travis-ci.org/MrDoomy/AwesomeHooks.svg) [![minified size](https://img.shields.io/bundlephobia/min/@mrdoomy/awesome-hooks.svg)](https://www.npmjs.com/package/@mrdoomy/awesome-hooks) [![codecov](https://img.shields.io/codecov/c/github/MrDoomy/AwesomeHooks.svg)](https://codecov.io/gh/MrDoomy/AwesomeHooks) [![beerware](https://img.shields.io/badge/license-beerware-orange.svg)](https://wikipedia.org/wiki/beerware)
 
 # Awesome Hooks
 
@@ -19,7 +19,7 @@ import React from 'react';
 import { useCounter } from '@mrdoomy/awesome-hooks';
 
 export default function Counter(props) {
-  const [value, add, del, reset] = useCounter(0);
+  const { value, add, del, reset } = useCounter(0);
 
   return (
     <div>
@@ -86,11 +86,11 @@ export default function App(props) {
 
   return (
     <ul>
-      {Object.entries(person).map(([key, value], idx) => {
+      {Object.entries(person).map(([key, value], idx) => (
         <li key={idx}>
           {key}: {value}
         </li>
-      })}
+      ))}
     </ul>
   );
 }
@@ -165,14 +165,14 @@ export default function List(props) {
 
   return (
     <ul>
-      {values.map(({ firstName, lastName }) => {
+      {values.map(({ firstName, lastName }) => (
         <li>
           <input defaultValue={value.firstName} onChange={e => setValue(e.target.value, 'firstName')}>
           <button onClick={() => delValue(lastName, 'lastName')}>
             Del
           </button>
         </li>
-      })}
+      ))}
       <button onClick={() => addValue({ firstName: 'Summer', lastName: 'Smith' })}>
         Add
       </button>
@@ -190,7 +190,7 @@ import React, { useEffect } from 'react';
 import { useMatrix } from '@mrdoomy/awesome-hooks';
 
 export default function Grid(props) {
-  const { rows, setValues } = useMatrix(4);
+  const [rows, setValues] = useMatrix(4);
 
   useEffect(() => {
     let values = [];

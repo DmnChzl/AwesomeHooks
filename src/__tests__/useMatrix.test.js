@@ -5,7 +5,7 @@ import useMatrix from '../useMatrix';
 
 describe('useMatrix', () => {
   const Matrix = ({ defaultValue }) => {
-    const [cols, setValues] = useMatrix(defaultValue);
+    const [rows, setValues] = useMatrix(defaultValue);
 
     useEffect(() => {
       const rickAndMorty = [
@@ -38,9 +38,9 @@ describe('useMatrix', () => {
 
     return (
       <ul>
-        {cols.map((rows, i) => (
+        {rows.map((cols, i) => (
           <ul key={i}>
-            {rows.map((value, j) => {
+            {cols.map((value, j) => {
               if (value) {
                 const { firstName, lastName } = value;
 
@@ -65,7 +65,7 @@ describe('useMatrix', () => {
 
   it('Renders Default', () => {
     const DefaultMatrix = () => {
-      const [cols, setValues] = useMatrix();
+      const [rows, setValues] = useMatrix();
 
       useEffect(() => {
         setValues(['One', 'Two', 'Three']);
@@ -73,9 +73,9 @@ describe('useMatrix', () => {
 
       return (
         <ul>
-          {cols.map((rows, i) => (
+          {rows.map((cols, i) => (
             <ul key={i}>
-              {rows.map((value, j) => (
+              {cols.map((value, j) => (
                 <li key={j}>{value}</li>
               ))}
             </ul>

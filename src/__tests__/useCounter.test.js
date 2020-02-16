@@ -5,13 +5,13 @@ import useCounter from '../useCounter';
 
 describe('useCounter', () => {
   const Counter = ({ defaultValue }) => {
-    const [value, increment, decrement, reset] = useCounter(defaultValue);
+    const { value, add: addOne, del: delOne, reset } = useCounter(defaultValue);
 
     return (
       <div>
         <span title="Counter">{value}</span>
-        <button onClick={() => increment()}>Increment</button>
-        <button onClick={() => decrement()}>Decrement</button>
+        <button onClick={() => addOne()}>Increment</button>
+        <button onClick={() => delOne()}>Decrement</button>
         <button onClick={reset}>Reset</button>
       </div>
     );
@@ -27,7 +27,7 @@ describe('useCounter', () => {
 
   it('Renders Default', () => {
     const DefaultCounter = () => {
-      const [value] = useCounter();
+      const { value } = useCounter();
 
       return <span title="Counter">{value}</span>;
     };

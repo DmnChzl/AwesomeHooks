@@ -8,10 +8,10 @@ import { useState } from 'react';
 export default function useCounter(initialState = 0) {
   const [value, setValue] = useState(initialState);
 
-  return [
+  return {
     value,
-    (unit = 1) => setValue(value + unit),
-    (unit = 1) => setValue(value - unit),
-    () => setValue(0)
-  ];
+    add: (unit = 1) => setValue(value + unit),
+    del: (unit = 1) => setValue(value - unit),
+    reset: () => setValue(0)
+  };
 }
