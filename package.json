@@ -1,6 +1,6 @@
 {
   "name": "@mrdoomy/awesome-hooks",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Awesome Hooks",
   "main": "dist/bundle.min.js",
   "author": {
