@@ -95,7 +95,7 @@ export default function useTimer(
     };
 
     dispatch({ type: INIT_TIME, payload: time });
-  }, [year, month, days, hours, minutes, seconds]);
+  }, []);
 
   useInterval(() => {
     dispatch({ type: SET_TIME });
