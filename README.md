@@ -72,7 +72,7 @@ import React, { useEffect } from 'react';
 import { useObject } from '@mrdoomy/awesome-hooks';
 
 export default function App(props) {
-  const [person, setPerson] = useObject({
+  const [person, setPerson, isEmpty] = useObject({
     firstName: 'Morty',
     lastName: 'Smith'
   });
@@ -86,7 +86,7 @@ export default function App(props) {
 
   return (
     <ul>
-      {Object.entries(person).map(([key, value], idx) => (
+      {!isEmpty && Object.entries(person).map(([key, value], idx) => (
         <li key={idx}>
           {key}: {value}
         </li>
@@ -214,6 +214,61 @@ export default function Grid(props) {
         </div>
       ))}
     </div>
+  );
+}
+```
+
+**useTimer**
+
+> _Use it to play with a timer_
+
+```js
+import React from 'react';
+import { useTimer } from '@mrdoomy/awesome-hooks';
+
+export default function Calendar(props) {
+  const { days, hours, minutes, seconds } = useTimer(2020, 4, 4, 12);
+
+  return (
+    <div>
+      Remainin' Time Before May The 4th...
+      <h1>Days: {days}</h1>
+      <h2>Hours: {hours}</h2>
+      <h3>Minutes: {minutes}</h3>
+      <h4>Seconds: {seconds}</h4>
+    </div>
+  );
+}
+```
+
+**useStorage**
+
+> _Use it to handle an object (and persist it in the session / local storage)_
+
+```js
+import React, { useEffect } from 'react';
+import { useStorage } from '@mrdoomy/awesome-hooks';
+
+const USE_LOCAL_STORAGE = true;
+
+export default function App(props) {
+  const [person, setPerson] = useStorage('person', USE_LOCAL_STORAGE);
+
+  useEffect(() => {
+    setPerson({
+      firstName: 'Rick',
+      lastName: 'Sanchez'
+    });
+  }, [setPerson]);
+
+  return (
+    <ul>
+      {Object.entries(person).map(([key, value], idx) => (
+        <li key={idx}>
+          {key}: {value}
+        </li>
+      ))}
+    </ul>
   );
 }
 ```

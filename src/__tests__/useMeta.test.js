@@ -3,17 +3,17 @@ import { render, wait } from '@testing-library/react';
 import useMeta from '../useMeta';
 
 describe('useMeta', () => {
-  const HelloWorld = () => {
+  const LoremIpsum = () => {
     useMeta('description', 'Lorem Ipsum Dolor Sit Amet');
 
     return <span>Lorem Ipsum</span>;
   };
 
-  it('Renders', async () => {
+  it('Should The Hook Works Well', async () => {
     render(
       <>
-        <HelloWorld />
-        <HelloWorld />
+        <LoremIpsum />
+        <LoremIpsum />
       </>
     );
 

@@ -9,7 +9,7 @@ describe('useDocumentTitle', () => {
     return <span>Hello World</span>;
   };
 
-  it('Renders Default', async () => {
+  it('Should The Hook Works With Default Behaviour', async () => {
     const DefaultTitle = () => {
       useDocumentTitle();
 
@@ -23,7 +23,7 @@ describe('useDocumentTitle', () => {
     });
   });
 
-  it('Renders', async () => {
+  it('Should The Hook Works Well', async () => {
     render(<Title />);
 
     await wait(() => {

@@ -25,7 +25,7 @@ describe('useField', () => {
     children: func
   };
 
-  it('Renders Default', () => {
+  it('Should The Hook Works With Default Behaviour', () => {
     const DefaultField = () => {
       const { value, error } = useField();
 
@@ -44,7 +44,7 @@ describe('useField', () => {
     expect(queryByTitle('Error').innerHTML).toHaveLength(0);
   });
 
-  it('Set Field Value', async () => {
+  it("Should 'setValue' Hook's Function Works Well", async () => {
     const { queryByDisplayValue, getByPlaceholderText } = render(
       <Field defaultValue="Lorem Ipsum">
         {({ value, setValue }) => (
@@ -68,7 +68,7 @@ describe('useField', () => {
     expect(queryByDisplayValue('Test')).toBeInTheDocument();
   });
 
-  it('Set Field Error', async () => {
+  it("Should 'setError' Hook's Function Works Well", async () => {
     const { getByPlaceholderText, queryByText } = render(
       <Field defaultValue="Lorem Ipsum">
         {({ value, setValue, error, setError }) => (
@@ -97,7 +97,7 @@ describe('useField', () => {
     expect(queryByText('Too Short')).toBeInTheDocument();
   });
 
-  it('Reset Field', async () => {
+  it("Should 'reset' Hook's Function Works Well", async () => {
     const { getByText, queryByText, queryByTitle } = render(
       <Field defaultValue="Lorem Ipsum">
         {({ value, setValue, error, setError, reset }) => (

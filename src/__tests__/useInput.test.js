@@ -20,7 +20,7 @@ describe('useInput', () => {
     defaultValue: string
   };
 
-  it('Renders Default', () => {
+  it('Should The Hook Works With Default Behaviour', () => {
     const DefaultInput = () => {
       const [value] = useInput();
 
@@ -33,7 +33,7 @@ describe('useInput', () => {
     expect(getByPlaceholderText('Input').value).toHaveLength(0);
   });
 
-  it('Input Value', () => {
+  it('Should The Hook Has The Right Value', () => {
     const { queryByDisplayValue } = render(
       <Input defaultValue="Lorem Ipsum" />
     );
@@ -41,7 +41,7 @@ describe('useInput', () => {
     expect(queryByDisplayValue('Lorem Ipsum')).toBeInTheDocument();
   });
 
-  it('Set Input', async () => {
+  it("Should 'setValue' Hook's Function Works Well", async () => {
     const { getByPlaceholderText, queryByDisplayValue } = render(
       <Input defaultValue="Lorem Ipsum" />
     );

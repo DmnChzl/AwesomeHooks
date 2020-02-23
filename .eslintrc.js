@@ -26,7 +26,7 @@ module.exports = {
     'no-mixed-spaces-and-tabs': ERROR,
     'react/prop-types': WARN,
     'react-hooks/rules-of-hooks': ERROR,
-    'react-hooks/exhaustive-deps': WARN,
+    'react-hooks/exhaustive-deps': OFF,
     'prettier/prettier': [
       WARN,
       {

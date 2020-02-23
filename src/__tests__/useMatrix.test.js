@@ -63,7 +63,7 @@ describe('useMatrix', () => {
     defaultValue: number
   };
 
-  it('Renders Default', () => {
+  it('Should The Hook Works With Default Behaviour', () => {
     const DefaultMatrix = () => {
       const [rows, setValues] = useMatrix();
 
@@ -92,7 +92,7 @@ describe('useMatrix', () => {
     expect(queryByText('Three')).toBeInTheDocument();
   });
 
-  it('Get Matrix Values By Key', () => {
+  it('Should The Hook Works Well', () => {
     const { queryByText } = render(<Matrix defaultValue={0} />);
 
     expect(queryByText('Rick Sanchez')).toBeInTheDocument();

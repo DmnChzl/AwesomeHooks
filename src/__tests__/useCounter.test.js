@@ -25,7 +25,7 @@ describe('useCounter', () => {
     defaultValue: number
   };
 
-  it('Renders Default', () => {
+  it('Should The Hook Works With Default Behaviour', () => {
     const DefaultCounter = () => {
       const { value } = useCounter();
 
@@ -38,13 +38,13 @@ describe('useCounter', () => {
     expect(getByTitle('Counter').innerHTML).toEqual('0');
   });
 
-  it('Counter Value', () => {
+  it('Should The Hook Has The Right Value', () => {
     const { getByTitle } = render(<Counter defaultValue={42} />);
 
     expect(getByTitle('Counter').innerHTML).toEqual('42');
   });
 
-  it('Increment Counter', async () => {
+  it("Should 'add' Hook's Function Works Well", async () => {
     const { getByText, getByTitle } = render(<Counter defaultValue={40} />);
 
     const incrementButton = getByText('Increment');
@@ -55,7 +55,7 @@ describe('useCounter', () => {
     expect(getByTitle('Counter').innerHTML).toEqual('42');
   });
 
-  it('Decrement Counter', async () => {
+  it("Should 'del' Hook's Function Works Well", async () => {
     const { getByText, getByTitle } = render(<Counter defaultValue={44} />);
 
     const decrementButton = getByText('Decrement');
@@ -66,7 +66,7 @@ describe('useCounter', () => {
     expect(getByTitle('Counter').innerHTML).toEqual('42');
   });
 
-  it('Reset Counter', async () => {
+  it("Should 'reset' Hook's Function Works Well", async () => {
     const { getByText, getByTitle } = render(<Counter defaultValue={42} />);
 
     const resetButton = getByText('Reset');

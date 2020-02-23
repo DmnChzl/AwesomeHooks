@@ -8,5 +8,7 @@ import { useState } from 'react';
 export default function useObject(initialState = {}) {
   const [value, setValue] = useState(initialState);
 
-  return [value, newValue => setValue({ ...value, ...newValue })];
+  const isEmpty = () => Object.entries(value).length === 0;
+
+  return [value, newValue => setValue({ ...value, ...newValue }), isEmpty()];
 }

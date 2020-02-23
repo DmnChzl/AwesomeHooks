@@ -31,7 +31,7 @@ describe('useArray', () => {
     render: func
   };
 
-  it('Renders', () => {
+  it('Should The Hook Works With Default Behaviour', () => {
     const DefaultList = () => {
       const { values, setValues: setAllValues } = useArray();
 
@@ -55,7 +55,7 @@ describe('useArray', () => {
     expect(queryByText('Two')).toBeInTheDocument();
   });
 
-  it('List Values', () => {
+  it('Should The Hook Has Right Values', () => {
     const { queryByText } = render(
       <List
         defaultValues={['One', 'Two']}
@@ -73,7 +73,7 @@ describe('useArray', () => {
     expect(queryByText('Two')).toBeInTheDocument();
   });
 
-  it('Add Value', async () => {
+  it("Should 'addValue' Hook's Function Works Well", async () => {
     const { getByText, queryByText } = render(
       <List
         defaultValues={['One', 'Two']}
@@ -97,7 +97,7 @@ describe('useArray', () => {
     expect(queryByText('Three')).toBeInTheDocument();
   });
 
-  it('Set Value By Key', async () => {
+  it("Should 'setValue' Hook's Function Works Well (With A Key)", async () => {
     const rickAndMorty = [
       {
         firstName: 'Rick',
@@ -146,7 +146,7 @@ describe('useArray', () => {
     expect(queryByDisplayValue('Summer')).toBeInTheDocument();
   });
 
-  it('Del Value', async () => {
+  it("Should 'delValue' Hook's Function Works Well", async () => {
     const { getByText, queryByText } = render(
       <List
         defaultValues={['One', 'Two']}
@@ -170,7 +170,7 @@ describe('useArray', () => {
     expect(queryByText('One')).not.toBeInTheDocument();
   });
 
-  it('Del Value By Key', async () => {
+  it("Should 'delValue' Hook's Function Works Well (With A Key)", async () => {
     const rickAndMorty = [
       {
         firstName: 'Rick',
