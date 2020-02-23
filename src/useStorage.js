@@ -5,7 +5,7 @@ import useObject from './useObject';
  * Hook: useStorage
  *
  * @param {String} key Key
- * @param {Boolean} local Local
+ * @param {Boolean} local Local (default: false)
  */
 export default function useStorage(key, local = false) {
   const [obj, setObj] = useObject({});
