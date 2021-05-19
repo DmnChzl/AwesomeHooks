@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, wait } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import useMeta from '../useMeta';
 
 describe('useMeta', () => {
@@ -17,7 +17,7 @@ describe('useMeta', () => {
       </>
     );
 
-    await wait(() => {
+    await waitFor(() => {
       const metas = document.getElementsByTagName('meta');
 
       expect(metas['description'].content).toEqual(

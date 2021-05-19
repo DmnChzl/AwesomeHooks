@@ -10,12 +10,7 @@ module.exports = {
     jest: true
   },
   plugins: ['react', 'react-hooks', 'prettier'],
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'prettier',
-    'prettier/react'
-  ],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
   rules: {
     'comma-dangle': ERROR,
     'no-case-declarations': WARN,
@@ -43,7 +38,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: '16.12.0'
+      version: '16.14.0'
     }
   }
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { arrayOf, number } from 'prop-types';
-import { render, wait } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import useTimer, { useInterval } from '../useTimer';
 import {
   getYear,
@@ -77,14 +77,14 @@ describe('useTimer', () => {
       />
     );
 
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByText('Days: 1')).toBeInTheDocument();
       expect(queryByText('Hours: 0')).toBeInTheDocument();
       expect(queryByText('Minutes: 0')).toBeInTheDocument();
       expect(queryByText('Seconds: 0')).toBeInTheDocument();
     });
 
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByText('Days: 0')).toBeInTheDocument();
       expect(queryByText('Hours: 23')).toBeInTheDocument();
       expect(queryByText('Minutes: 59')).toBeInTheDocument();
@@ -108,13 +108,13 @@ describe('useTimer', () => {
 
     expect(queryByText('Days: 0')).toBeInTheDocument();
 
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByText('Hours: 1')).toBeInTheDocument();
       expect(queryByText('Minutes: 0')).toBeInTheDocument();
       expect(queryByText('Seconds: 0')).toBeInTheDocument();
     });
 
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByText('Hours: 0')).toBeInTheDocument();
       expect(queryByText('Minutes: 59')).toBeInTheDocument();
       expect(queryByText('Seconds: 59')).toBeInTheDocument();
@@ -138,12 +138,12 @@ describe('useTimer', () => {
     expect(queryByText('Days: 0')).toBeInTheDocument();
     expect(queryByText('Hours: 0')).toBeInTheDocument();
 
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByText('Minutes: 1')).toBeInTheDocument();
       expect(queryByText('Seconds: 0')).toBeInTheDocument();
     });
 
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByText('Minutes: 0')).toBeInTheDocument();
       expect(queryByText('Seconds: 59')).toBeInTheDocument();
     });
@@ -167,11 +167,11 @@ describe('useTimer', () => {
     expect(queryByText('Hours: 0')).toBeInTheDocument();
     expect(queryByText('Minutes: 0')).toBeInTheDocument();
 
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByText('Seconds: 1')).toBeInTheDocument();
     });
 
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByText('Seconds: 0')).toBeInTheDocument();
     });
   });

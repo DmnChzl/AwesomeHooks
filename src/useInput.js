@@ -8,5 +8,5 @@ import { useState } from 'react';
 export default function useInput(initialState = '') {
   const [value, setValue] = useState(initialState);
 
-  return [value, e => setValue(e.target.value)];
+  return [value, (e) => setValue(e.target.value)];
 }

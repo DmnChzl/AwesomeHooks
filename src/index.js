@@ -9,7 +9,7 @@ import useObject from './useObject';
 import useStorage from './useStorage';
 import useTimer from './useTimer';
 
-export default {
+export {
   useArray,
   useCounter,
   useDocumentTitle,

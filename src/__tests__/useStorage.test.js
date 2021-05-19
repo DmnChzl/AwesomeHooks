@@ -14,7 +14,11 @@ describe('useStorage', () => {
       });
     }, []);
 
-    return <div>{Object.entries(objStored).length !== 0 && children}</div>;
+    return (
+      <div>
+        {objStored && Object.entries(objStored).length !== 0 && children}
+      </div>
+    );
   };
 
   Wrapper.defaultProps = {
@@ -45,11 +49,12 @@ describe('useStorage', () => {
 
       return (
         <ul>
-          {Object.entries(objStored).map(([key, value], idx) => (
-            <li key={idx}>
-              {key}: {value}
-            </li>
-          ))}
+          {objStored &&
+            Object.entries(objStored).map(([key, value], idx) => (
+              <li key={idx}>
+                {key}: {value}
+              </li>
+            ))}
         </ul>
       );
     };
@@ -60,16 +65,17 @@ describe('useStorage', () => {
       </Wrapper>
     );
 
+    expect(queryByText('firstName: Rick')).not.toBeInTheDocument();
     expect(queryByText('firstName: Morty')).toBeInTheDocument();
     expect(queryByText('lastName: Smith')).toBeInTheDocument();
   });
 
   it("Should The Hook Works Well (With 'localStorage')", () => {
     const Local = () => {
-      const [obj, setObj] = useStorage('rickAndMorty', true);
+      const [objStored, setObjStored] = useStorage('rickAndMorty', true);
 
       useEffect(() => {
-        setObj({
+        setObjStored({
           firstName: 'Morty',
           lastName: 'Smith'
         });
@@ -77,11 +83,12 @@ describe('useStorage', () => {
 
       return (
         <ul>
-          {Object.entries(obj).map(([key, value], idx) => (
-            <li key={idx}>
-              {key}: {value}
-            </li>
-          ))}
+          {objStored &&
+            Object.entries(objStored).map(([key, value], idx) => (
+              <li key={idx}>
+                {key}: {value}
+              </li>
+            ))}
         </ul>
       );
     };
@@ -92,6 +99,7 @@ describe('useStorage', () => {
       </Wrapper>
     );
 
+    expect(queryByText('firstName: Rick')).not.toBeInTheDocument();
     expect(queryByText('firstName: Morty')).toBeInTheDocument();
     expect(queryByText('lastName: Smith')).toBeInTheDocument();
   });

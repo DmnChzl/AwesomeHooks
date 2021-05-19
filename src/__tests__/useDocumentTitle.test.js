@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, wait } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import useDocumentTitle from '../useDocumentTitle';
 
 describe('useDocumentTitle', () => {
@@ -18,7 +18,7 @@ describe('useDocumentTitle', () => {
 
     render(<DefaultTitle />);
 
-    await wait(() => {
+    await waitFor(() => {
       expect(document.title).toEqual('');
     });
   });
@@ -26,7 +26,7 @@ describe('useDocumentTitle', () => {
   it('Should The Hook Works Well', async () => {
     render(<Title />);
 
-    await wait(() => {
+    await waitFor(() => {
       expect(document.title).toEqual('Hello World');
     });
   });

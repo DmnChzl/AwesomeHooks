@@ -119,7 +119,7 @@ describe('useArray', () => {
                 key={idx}
                 placeholder="Name"
                 defaultValue={firstName}
-                onChange={e =>
+                onChange={(e) =>
                   setOneValue(
                     { firstName: e.target.value, lastName },
                     'lastName'

@@ -13,7 +13,7 @@ export default function useArray(initialState = []) {
    *
    * @param {Any} newValue New Value
    */
-  const addValue = newValue => {
+  const addValue = (newValue) => {
     setValues([...values, newValue]);
   };
 
@@ -24,7 +24,7 @@ export default function useArray(initialState = []) {
    * @param {String} key Key
    */
   const setValue = (value, key) => {
-    setValues(values.map(val => (val[key] === value[key] ? value : val)));
+    setValues(values.map((val) => (val[key] === value[key] ? value : val)));
   };
 
   /**
@@ -35,10 +35,10 @@ export default function useArray(initialState = []) {
    */
   const delValue = (value, key) => {
     if (key) {
-      return setValues(values.filter(val => val[key] !== value));
+      return setValues(values.filter((val) => val[key] !== value));
     }
 
-    return setValues(values.filter(val => val !== value));
+    return setValues(values.filter((val) => val !== value));
   };
 
   return {

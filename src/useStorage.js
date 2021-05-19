@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import useObject from './useObject';
+import { useState, useEffect } from 'react';
 
 /**
  * Hook: useStorage
@@ -8,7 +7,7 @@ import useObject from './useObject';
  * @param {Boolean} local Local (default: false)
  */
 export default function useStorage(key, local = false) {
-  const [obj, setObj] = useObject({});
+  const [obj, setObj] = useState(null);
 
   useEffect(() => {
     let item = null;
@@ -24,8 +23,8 @@ export default function useStorage(key, local = false) {
     }
   }, [key, local]);
 
-  const setVal = newVal => {
-    const item = JSON.stringify({ ...obj, ...newVal });
+  const setVal = (newVal) => {
+    const item = JSON.stringify(newVal);
 
     if (local) {
       localStorage.setItem(key, item);

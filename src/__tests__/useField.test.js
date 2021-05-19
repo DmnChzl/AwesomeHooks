@@ -52,7 +52,7 @@ describe('useField', () => {
             <input
               placeholder="Field"
               defaultValue={value}
-              onChange={e => setValue(e.target.value)}
+              onChange={(e) => setValue(e.target.value)}
             />
           </div>
         )}
@@ -76,7 +76,7 @@ describe('useField', () => {
             <input
               placeholder="Field"
               defaultValue={value}
-              onChange={e => {
+              onChange={(e) => {
                 if (e.target.value.length < 5) {
                   setError('Too Short');
                 }

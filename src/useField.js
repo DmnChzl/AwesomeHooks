@@ -46,8 +46,8 @@ export default function useField(initialState = '') {
   return {
     value: val,
     error: err,
-    setValue: val => dispatch({ type: SET_VAL, payload: val }),
-    setError: err => dispatch({ type: SET_ERR, payload: err }),
+    setValue: (val) => dispatch({ type: SET_VAL, payload: val }),
+    setError: (err) => dispatch({ type: SET_ERR, payload: err }),
     reset: () => dispatch({ type: RESET })
   };
 }
