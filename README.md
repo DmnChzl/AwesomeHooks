@@ -1,8 +1,8 @@
-[![npm](https://img.shields.io/npm/v/@mrdoomy/awesome-hooks.svg)](https://github.com/mrdoomy/awesomehooks) [![build](https://travis-ci.org/MrDoomy/AwesomeHooks.svg)](https://travis-ci.org/MrDoomy/AwesomeHooks.svg) [![minified size](https://img.shields.io/bundlephobia/min/@mrdoomy/awesome-hooks.svg)](https://www.npmjs.com/package/@mrdoomy/awesome-hooks) [![codecov](https://img.shields.io/codecov/c/github/MrDoomy/AwesomeHooks.svg)](https://codecov.io/gh/MrDoomy/AwesomeHooks) [![beerware](https://img.shields.io/badge/license-beerware-orange.svg)](https://wikipedia.org/wiki/beerware)
+[![npm](https://img.shields.io/npm/v/@dmnchzl/awesome-hooks.svg)](https://github.com/dmnchzl/awesomehooks) [![build](https://travis-ci.org/DmnChzl/AwesomeHooks.svg)](https://travis-ci.org/DmnChzl/AwesomeHooks.svg) [![minified size](https://img.shields.io/bundlephobia/min/@dmnchzl/awesome-hooks.svg)](https://www.npmjs.com/package/@dmnchzl/awesome-hooks) [![codecov](https://img.shields.io/codecov/c/github/DmnChzl/AwesomeHooks.svg)](https://codecov.io/gh/DmnChzl/AwesomeHooks) [![beerware](https://img.shields.io/badge/license-beerware-orange.svg)](https://wikipedia.org/wiki/beerware)
 
 # Awesome Hooks
 
-**[@mrdoomy](https://www.mrdoomy.xyz)/awesome-hooks** is a collection of custom React hooks.
+**@dmnchzl/awesome-hooks** is a collection of custom React hooks.
 
 This library is published with the Beerware license, which means you can do whatever you want with the code.
 
@@ -16,7 +16,7 @@ Below, the list of all available hooks:
 
 ```js
 import React from 'react';
-import { useCounter } from '@mrdoomy/awesome-hooks';
+import { useCounter } from '@dmnchzl/awesome-hooks';
 
 export default function Counter(props) {
   const { value, add, del, reset } = useCounter(0);
@@ -38,7 +38,7 @@ export default function Counter(props) {
 
 ```js
 import React from 'react';
-import { useDocumentTitle } from '@mrdoomy/awesome-hooks';
+import { useDocumentTitle } from '@dmnchzl/awesome-hooks';
 
 export default function HelloWorld(props) {
   useDocumentTitle('Hello World');
@@ -53,7 +53,7 @@ export default function HelloWorld(props) {
 
 ```js
 import React from 'react';
-import { useMeta } from '@mrdoomy/awesome-hooks';
+import { useMeta } from '@dmnchzl/awesome-hooks';
 
 export default function LoremIpsum(props) {
   useMeta('theme-color', '#2a2c2e');
@@ -69,7 +69,7 @@ export default function LoremIpsum(props) {
 
 ```js
 import React, { useEffect } from 'react';
-import { useObject } from '@mrdoomy/awesome-hooks';
+import { useObject } from '@dmnchzl/awesome-hooks';
 
 export default function App(props) {
   const [person, setPerson, isEmpty] = useObject({
@@ -102,7 +102,7 @@ export default function App(props) {
 
 ```js
 import React from 'react';
-import { useInput } from '@mrdoomy/awesome-hooks';
+import { useInput } from '@dmnchzl/awesome-hooks';
 
 export default function Input(props) {
   const [value, setValue] = useInput('');
@@ -117,7 +117,7 @@ export default function Input(props) {
 
 ```js
 import React from 'react';
-import { useField } from '@mrdoomy/awesome-hooks';
+import { useField } from '@dmnchzl/awesome-hooks';
 
 export default function Form(props) {
   const { value, error, setValue, setError, reset } = useField('');
@@ -149,7 +149,7 @@ export default function Form(props) {
 
 ```js
 import React, { useEffect } from 'react';
-import { useArray } from '@mrdoomy/awesome-hooks';
+import { useArray } from '@dmnchzl/awesome-hooks';
 
 export default function List(props) {
   const { values, setValues, addValue, setValue, delValue } = useArray([]);
@@ -181,38 +181,22 @@ export default function List(props) {
 }
 ```
 
-**useMatrix**
+**useToggle**
 
-> _Use it to transform an array into a matrix (useful to comply with bootstrap standards)_
+> _Use it to play with toggles_
 
 ```js
 import React, { useEffect } from 'react';
-import { useMatrix } from '@mrdoomy/awesome-hooks';
+import { useToggle } from '@dmnchzl/awesome-hooks';
 
-export default function Grid(props) {
-  const [rows, setValues] = useMatrix(4);
-
-  useEffect(() => {
-    let values = [];
-
-    for (let i = 0; i < 12; i++) {
-      values = [...values, `Val ${i}`];
-    }
-
-    setValues(values);
-  }, [setValues]);
+export default function Toggle(props) {
+  const [value, switchOn, switchOff] = useToggle(true);
 
   return (
     <div>
-      {rows.map((cols, i) => (
-        <div key={i} className="row">
-          {cols.map((value, j) => (
-            <div key={j} className="col">
-              {value}
-            </div>
-          ))}
-        </div>
-      ))}
+      {value}
+      <button onClick={switchOn}>Switch On</button>
+      <button onClick={switchOff}>Switch Off</button>
     </div>
   );
 }
@@ -224,7 +208,7 @@ export default function Grid(props) {
 
 ```js
 import React from 'react';
-import { useTimer } from '@mrdoomy/awesome-hooks';
+import { useTimer } from '@dmnchzl/awesome-hooks';
 
 export default function Calendar(props) {
   const { days, hours, minutes, seconds } = useTimer(2020, 4, 4, 12);
@@ -247,7 +231,7 @@ export default function Calendar(props) {
 
 ```js
 import React, { useEffect } from 'react';
-import { useStorage } from '@mrdoomy/awesome-hooks';
+import { useStorage } from '@dmnchzl/awesome-hooks';
 
 const USE_LOCAL_STORAGE = true;
 
@@ -273,6 +257,26 @@ export default function App(props) {
 }
 ```
 
+**useWindowSize**
+
+> _use it to evaluate screen width and length_
+
+```js
+import React, { useEffect } from 'react';
+import { useWindowSize } from '@dmnchzl/awesome-hooks';
+
+export default function Size(props) {
+  const size = useWindowSize();
+
+  return (
+    <div>
+      <span aria-label="X">X: {size.width}</span>
+      <span aria-label="Y">Y: {size.height}</span>
+    </div>
+  );
+}
+```
+
 ### Miscellaneous
 
 If you want more,
@@ -280,7 +284,7 @@ If you want more,
 You can clone the project:
 
 ```
-git clone https://github.com/mrdoomy/awesomehooks.git
+git clone https://github.com/dmnchzl/awesomehooks.git
 ```
 
 Install dependencies:

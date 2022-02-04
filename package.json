@@ -1,13 +1,13 @@
 {
-  "name": "@mrdoomy/awesome-hooks",
-  "version": "0.2.2",
+  "name": "@dmnchzl/awesome-hooks",
+  "version": "0.4.1",
   "description": "Awesome Hooks",
   "main": "dist/bundle.min.js",
   "author": {
     "name": "Damien Chazoule",
     "email": "damien.chazoule@gmail.com"
   },
-  "repository": "https://github.com/mrdoomy/awesomehooks.git",
+  "repository": "https://github.com/dmnchzl/awesomehooks.git",
   "scripts": {
     "lint": "eslint src",
     "lint:fix": "yarn lint --fix",
